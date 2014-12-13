@@ -1,7 +1,14 @@
-{{#each uniqueSessionTimes}}
-  <div>{{#link-to 'plan.sessions-by-time' this}}{{this}}{{/link-to}}</div>
-{{else}}
-  <div>No Data</div>
+<ul>
+{{#each group in groupedSessionTimes}}
+  <li>
+    {{moment-weekday group.key}}
+    <ul>
+    {{#each item in group.values}}
+      <li>{{#link-to 'plan.sessions-by-time' item}}{{moment-time item}}{{/link-to}}</li>
+    {{/each}}
+    </ul>
+  </li>
 {{/each}}
+</ul>
 
 {{outlet}}
