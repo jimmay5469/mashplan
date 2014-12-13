@@ -1,0 +1,7 @@
+{{#each uniqueSessionTimes}}
+  <div>{{#link-to 'plan.sessions-by-time' this}}{{this}}{{/link-to}}</div>
+{{else}}
+  <div>No Data</div>
+{{/each}}
+
+{{outlet}}
