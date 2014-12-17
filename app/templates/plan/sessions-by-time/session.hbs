@@ -2,6 +2,14 @@
 
 <strong>{{model.Title}}</strong>
 <div>
+  <strong>Day: </strong>
+  {{moment-weekday model.SessionStartTime}}
+</div>
+<div>
+  <strong>Time: </strong>
+  {{moment-time model.SessionStartTime}} - {{moment-time model.SessionEndTime}}
+</div>
+<div>
   <strong>Rooms: </strong>
   {{#each room in model.Rooms}}
     {{room}}, 
