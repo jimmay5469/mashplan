@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.ArrayController.extend({
-  sessionTimes: Ember.computed.map('model', function(item) { return item.SessionTime; }),
+  sessionTimes: Ember.computed.map('model', function(item) { return item.SessionStartTime; }),
   uniqueSessionTimes: Ember.computed.uniq('sessionTimes'),
   groupedSessionTimes: function() {
     var groupObj = this.get('uniqueSessionTimes').reduce(function(grouping,item) {

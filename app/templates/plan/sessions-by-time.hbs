@@ -4,13 +4,15 @@
 {{#each session in model}}
   <li class='session'>
     <div class='session-title'>
-      {{session.Title}} ({{session.Room}})
+      {{session.Title}}
     </div>
     <div class='session-details'>
       <strong>{{session.Title}}</strong>
       <div>
-        <strong>Room: </strong>
-        {{session.Room}}
+        <strong>Rooms: </strong>
+        {{#each room in session.Rooms}}
+          {{room}}, 
+        {{/each}}
       </div>
       <div>
         <strong>Tags: </strong>
