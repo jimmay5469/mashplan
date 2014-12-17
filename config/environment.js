@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'mashplan',
     environment: environment,
-    baseURL: '/',
+    baseURL: '/mashplan/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
