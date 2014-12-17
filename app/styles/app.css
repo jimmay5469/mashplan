@@ -5,24 +5,6 @@ a,
 a:visited {
   color: blue;
 }
-.session {
-  cursor: default;
-}
-.session-details {
-  display: none;
-  margin: 0px 10px 0px 150px;
-  max-width: 600px;
-  position: absolute;
-  background-color: white;
-  border: 1px solid black;
-  padding: 15px;
-}
-.session:hover .session-details {
-  display: block;
-}
-.session:hover .session-title {
-  font-weight: 700;
-}
 .active {
   font-weight: 700;
 }

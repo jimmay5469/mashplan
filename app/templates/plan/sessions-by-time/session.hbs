@@ -1,0 +1,22 @@
+<h3>Session</h3>
+
+<strong>{{model.Title}}</strong>
+<div>
+  <strong>Rooms: </strong>
+  {{#each room in model.Rooms}}
+    {{room}}, 
+  {{/each}}
+</div>
+<div>
+  <strong>Tags: </strong>
+  {{#each tag in model.Tags}}
+    {{tag}}, 
+  {{/each}}
+</div>
+<div>
+  <strong>Speakers: </strong>
+  {{#each speaker in model.Speakers}}
+    {{speaker.FirstName}} {{speaker.LastName}}, 
+  {{/each}}
+</div>
+<div>{{model.Abstract}}</div>

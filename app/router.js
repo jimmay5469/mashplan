@@ -7,7 +7,9 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('plan', { path: '/' }, function(){
-    this.route('sessions-by-time', { path: '/:time' });
+    this.route('sessions-by-time', { path: '/:time' }, function(){
+      this.route('session', { path: '/:Id' });
+    });
   });
 });
 
