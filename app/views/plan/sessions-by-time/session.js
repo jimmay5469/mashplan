@@ -8,6 +8,6 @@ export default Ember.View.extend({
     if (!this.$()) { return; }
     window.$('html, body').animate({
       scrollTop: this.$().offset().top
-    }, 300);
+    }, 1000);
   }.observes('controller.model')
 });
