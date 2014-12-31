@@ -1,5 +1,5 @@
 html, body {
-  margin: 20px;
+  margin: 5px;
 }
 a,
 a:visited {
@@ -7,4 +7,16 @@ a:visited {
 }
 .active {
   font-weight: 700;
+}
+@media (min-width: 768px) { /*tablets*/
+  .plan {
+    position: absolute;
+    margin: 5px;
+    width: 190px;
+  }
+  .sessions {
+    position: absolute;
+    margin: 5px;
+    margin-left: 200px;
+  }
 }

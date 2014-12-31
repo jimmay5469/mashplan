@@ -1,30 +1,31 @@
-<h3>Session</h3>
+<div class='session'>
+  <h3>{{model.Title}}</h3>
 
-<strong>{{model.Title}}</strong>
-<div>
-  <strong>Day: </strong>
-  {{moment-weekday model.SessionStartTime}}
+  <div>
+    <strong>Day: </strong>
+    {{moment-weekday model.SessionStartTime}}
+  </div>
+  <div>
+    <strong>Time: </strong>
+    {{moment-time model.SessionStartTime}} - {{moment-time model.SessionEndTime}}
+  </div>
+  <div>
+    <strong>Rooms: </strong>
+    {{#each room in model.Rooms}}
+      {{room}}, 
+    {{/each}}
+  </div>
+  <div>
+    <strong>Tags: </strong>
+    {{#each tag in model.Tags}}
+      {{tag}}, 
+    {{/each}}
+  </div>
+  <div>
+    <strong>Speakers: </strong>
+    {{#each speaker in model.Speakers}}
+      {{speaker.FirstName}} {{speaker.LastName}}, 
+    {{/each}}
+  </div>
+  <div>{{model.Abstract}}</div>
 </div>
-<div>
-  <strong>Time: </strong>
-  {{moment-time model.SessionStartTime}} - {{moment-time model.SessionEndTime}}
-</div>
-<div>
-  <strong>Rooms: </strong>
-  {{#each room in model.Rooms}}
-    {{room}}, 
-  {{/each}}
-</div>
-<div>
-  <strong>Tags: </strong>
-  {{#each tag in model.Tags}}
-    {{tag}}, 
-  {{/each}}
-</div>
-<div>
-  <strong>Speakers: </strong>
-  {{#each speaker in model.Speakers}}
-    {{speaker.FirstName}} {{speaker.LastName}}, 
-  {{/each}}
-</div>
-<div>{{model.Abstract}}</div>

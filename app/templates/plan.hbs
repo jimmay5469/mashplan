@@ -1,14 +1,18 @@
-<ul>
-{{#each group in groupedSessionTimes}}
-  <li>
-    {{moment-weekday group.key}}
-    <ul>
-    {{#each item in group.values}}
-      <li>{{#link-to 'plan.sessions-by-time' item}}{{moment-time item}}{{/link-to}}</li>
-    {{/each}}
-    </ul>
-  </li>
-{{/each}}
-</ul>
+<div class='plan'>
+  <h3>Schedule</h3>
+
+  <ul>
+  {{#each group in groupedSessionTimes}}
+    <li>
+      {{moment-weekday group.key}}
+      <ul>
+      {{#each item in group.values}}
+        <li>{{#link-to 'plan.sessions-by-time' item}}{{moment-time item}}{{/link-to}}</li>
+      {{/each}}
+      </ul>
+    </li>
+  {{/each}}
+  </ul>
+</div>
 
 {{outlet}}
