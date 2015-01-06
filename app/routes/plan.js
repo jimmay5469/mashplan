@@ -7,7 +7,7 @@ export default Ember.Route.extend({
     })
     .then(function(data) {
       return data.filter(function(item) {
-        return item.SessionType !== 'Kidz Mash';
+        return item.SessionType !== 'Kidz Mash' && item.SessionType !== 'CodeMash Schedule Item';
       });
     });
   }
