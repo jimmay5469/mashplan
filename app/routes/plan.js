@@ -1,7 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model: function() {
+  queryParams: {
+    type: {
+      refreshModel: true
+    }
+  },
+  model: function(params) {
     return new Ember.RSVP.Promise(function(resolve, reject) {
       if(localStorage.getItem('sessions')) {
         resolve(JSON.parse(localStorage.getItem('sessions')));
@@ -10,13 +15,29 @@ export default Ember.Route.extend({
       }
     })
     .then(function(data) {
-      localStorage.setItem('sessions', JSON.stringify(data));
+      if(!localStorage.getItem('sessions')) {
+        localStorage.setItem('sessions', JSON.stringify(data));
+      }
       return data;
     })
     .then(function(data) {
-      return data.filter(function(item) {
-        return item.SessionType !== 'Kidz Mash' && item.SessionType !== 'CodeMash Schedule Item';
-      });
+      switch(params.type) {
+        case 'kidzmash':
+          console.log('kidzmash');
+          return data.filter(function(item) {
+            return item.SessionType === 'Kidz Mash';
+          });
+        case 'codemash':
+          console.log('codemash');
+          return data.filter(function(item) {
+            return item.SessionType === 'CodeMash Schedule Item';
+          });
+        default:
+          console.log('sessions');
+          return data.filter(function(item) {
+            return item.SessionType !== 'Kidz Mash' && item.SessionType !== 'CodeMash Schedule Item';
+          });
+      }
     });
   },
   actions: {
