@@ -7,25 +7,31 @@
   </div>
   <div>
     <strong>Time: </strong>
-    {{moment-time model.SessionStartTime}} - {{moment-time model.SessionEndTime}}
+    {{moment-time model.SessionStartTime}}-{{moment-time model.SessionEndTime}}
   </div>
   <div>
-    <strong>Rooms: </strong>
-    {{#each room in model.Rooms}}
-      {{room}}, 
-    {{/each}}
+    <strong>Room: </strong>
+    <ul class='inline-list rooms'>
+      {{#each room in model.Rooms}}
+        <li>{{room}}</li>
+      {{/each}}
+    </ul>
   </div>
   <div>
     <strong>Tags: </strong>
-    {{#each tag in model.Tags}}
-      {{tag}}, 
-    {{/each}}
+    <ul class='inline-list'>
+      {{#each tag in model.Tags}}
+        <li>{{tag}}</li>
+      {{/each}}
+    </ul>
   </div>
   <div>
     <strong>Speakers: </strong>
-    {{#each speaker in model.Speakers}}
-      {{speaker.FirstName}} {{speaker.LastName}}, 
-    {{/each}}
+    <ul class='inline-list'>
+      {{#each speaker in model.Speakers}}
+        <li>{{speaker.FirstName}} {{speaker.LastName}}</li>
+      {{/each}}
+    </ul>
   </div>
   <div>{{model.Abstract}}</div>
 </div>

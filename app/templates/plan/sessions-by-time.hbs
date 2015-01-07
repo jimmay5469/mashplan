@@ -1,16 +1,18 @@
 <div class='sessions'>
   {{#if isSessionView}}
     <h3>
-      {{moment-weekday sessionStartTime}} - {{moment-time sessionStartTime}} Sessions
+      {{moment-weekday sessionStartTime}}: {{moment-time sessionStartTime}}
     </h3>
 
     <ul>
     {{#each session in filteredModel}}
       <li>
         {{#link-to 'plan.sessions-by-time.session' session}}{{session.Title}}{{/link-to}}
-      {{#each speaker in session.Speakers}}
-        {{speaker.FirstName}} {{speaker.LastName}}, 
-      {{/each}}
+        <ul class='inline-list'>
+          {{#each speaker in session.Speakers}}
+            <li>{{speaker.FirstName}} {{speaker.LastName}}</li>
+          {{/each}}
+        </ul>
       </li>
     {{/each}}
     </ul>
@@ -22,7 +24,7 @@
     <ul>
     {{#each session in filteredModel}}
       <li>
-        {{moment-time session.SessionStartTime}} - {{moment-time session.SessionEndTime}}:
+        {{moment-time session.SessionStartTime}}-{{moment-time session.SessionEndTime}}:
         {{#link-to 'plan.sessions-by-time.session' session}}{{session.Title}}{{/link-to}}
       </li>
     {{/each}}

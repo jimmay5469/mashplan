@@ -18,13 +18,7 @@
   {{/each}}
   </ul>
 
-  <ul>
-    <li>{{#link-to 'plan' (query-params type='sessions')}}CodeMash Sessions{{/link-to}}</li>
-    <li>{{#link-to 'plan' (query-params type='codemash')}}CodeMash Schedule Items{{/link-to}}</li>
-    <li>{{#link-to 'plan' (query-params type='kidzmash')}}Kidz Mash{{/link-to}}</li>
-  </ul>
-
-  <button {{action 'refreshSessions'}}>Refresh Sessions</button>
+  <button {{action 'refreshSessions'}}>Refresh Schedule</button>
 </div>
 
 {{outlet}}
