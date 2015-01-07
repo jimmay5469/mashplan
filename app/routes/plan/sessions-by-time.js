@@ -2,6 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function(params) {
-    return this.modelFor('plan').filter(function(item) { return item.SessionStartTime === params.time; });
+    return {
+      time: params.time,
+      sessions: this.modelFor('plan')
+    };
   }
 });

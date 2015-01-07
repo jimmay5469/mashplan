@@ -4,12 +4,16 @@
   <ul>
   {{#each group in groupedSessionTimes}}
     <li>
-      {{moment-weekday group.key}}
-      <ul>
-      {{#each item in group.values}}
-        <li>{{#link-to 'plan.sessions-by-time' item}}{{moment-time item}}{{/link-to}}</li>
-      {{/each}}
-      </ul>
+      {{#if isSessionView}}
+        {{moment-weekday group.key}}
+        <ul>
+        {{#each item in group.values}}
+          <li>{{#link-to 'plan.sessions-by-time' item}}{{moment-time item}}{{/link-to}}</li>
+        {{/each}}
+        </ul>
+      {{else}}
+        {{#link-to 'plan.sessions-by-time' group.key}}{{moment-weekday group.key}}{{/link-to}}
+      {{/if}}
     </li>
   {{/each}}
   </ul>

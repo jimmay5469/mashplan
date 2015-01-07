@@ -1,18 +1,33 @@
 <div class='sessions'>
-  <h3>
-    {{moment-weekday SessionStartTime}} - {{moment-time SessionStartTime}} Sessions
-  </h3>
+  {{#if isSessionView}}
+    <h3>
+      {{moment-weekday sessionStartTime}} - {{moment-time sessionStartTime}} Sessions
+    </h3>
 
-  <ul>
-  {{#each session in model}}
-    <li>
-      {{#link-to 'plan.sessions-by-time.session' session}}{{session.Title}}{{/link-to}}
-    {{#each speaker in session.Speakers}}
-      {{speaker.FirstName}} {{speaker.LastName}}, 
+    <ul>
+    {{#each session in filteredModel}}
+      <li>
+        {{#link-to 'plan.sessions-by-time.session' session}}{{session.Title}}{{/link-to}}
+      {{#each speaker in session.Speakers}}
+        {{speaker.FirstName}} {{speaker.LastName}}, 
+      {{/each}}
+      </li>
     {{/each}}
-    </li>
-  {{/each}}
-  </ul>
+    </ul>
+  {{else}}
+    <h3>
+      {{moment-weekday sessionStartTime}}
+    </h3>
+
+    <ul>
+    {{#each session in filteredModel}}
+      <li>
+        {{moment-time session.SessionStartTime}} - {{moment-time session.SessionEndTime}}:
+        {{#link-to 'plan.sessions-by-time.session' session}}{{session.Title}}{{/link-to}}
+      </li>
+    {{/each}}
+    </ul>
+  {{/if}}
 
   {{outlet}}
 </div>

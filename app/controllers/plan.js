@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.ArrayController.extend({
   queryParams: ['type'],
   type: 'sessions',
+  isSessionView: Ember.computed.equal('type', 'sessions'),
   groupedSessionTimes: function() {
     var sessionTimes = this.get('model').map(function(item) { return item.SessionStartTime; });
     var uniqueSessionTimes = sessionTimes.filter(function(value, index, arr) { return arr.indexOf(value) === index; });
