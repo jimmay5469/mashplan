@@ -31,7 +31,14 @@ a:hover {
 .inline-list li:last-child:after {
   content: ''
 }
+.map img {
+  max-width: 100%;
+}
 @media (min-width: 768px) { /*tablets*/
+  .map {
+    position: absolute;
+    margin: 5px;
+  }
   .plan {
     position: absolute;
     margin: 5px;
