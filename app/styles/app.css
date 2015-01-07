@@ -13,6 +13,9 @@ a:hover {
   font-weight: 700;
   text-decoration: underline;
 }
+ul {
+  padding: 0 0 0 20px;
+}
 .inline-list {
   margin: 0;
   padding: 0;
