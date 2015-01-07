@@ -8,7 +8,7 @@ export default Ember.ArrayController.extend({
     var sessionTimes = this.get('model').map(function(item) { return item.SessionStartTime; });
     var uniqueSessionTimes = sessionTimes.filter(function(value, index, arr) { return arr.indexOf(value) === index; });
     var groupObj = uniqueSessionTimes.reduce(function(grouping,item) {
-      var day = moment(item).startOf('day');
+      var day = moment(item).startOf('day').format().split('T').shift();
       if (grouping[day]) {
         grouping[day].push(item);
       } else {
